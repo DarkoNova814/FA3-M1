@@ -1,17 +1,32 @@
-console.log('Before binding event');
+function replaceAll() {
+    let str1 = document.getElementById("txtInput").value;
+    console.log(str1);
+    
 
-// bind
-let txtInput = document.querySelector('#txtInput');
-let btnReplaceAll = document.querySelector('#btnReplaceAll');
-let txtOutput = document.querySelector('#txtOutput');
+    let newStr = str1.replaceAll(' ', '');
+    document.getElementById("txtResult").innerHTML = newStr;
+}
 
 
-// event
-btnReplaceAll.addEventListener('click',function(){
-    // logic
-    let str = txtInput.value;
-    let result = str.replaceAll(" ","");
-    // txtOutput?
-    txtOutput.innerText = result;
-    console.log(result);
+function countLetters() {
+    let inputText = document.getElementById("tInp4").value;
+    
+
+    let lettersOnly = inputText.replace(/[^a-zA-Z]/g, '');
+    let letterCount = lettersOnly.length;
+    
+
+    document.getElementById("tOut3").innerHTML = letterCount;
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('CountBtn').addEventListener('click', countLetters);
+    
+
+    document.getElementById('tInp4').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            countLetters();
+        }
+    });
 });
