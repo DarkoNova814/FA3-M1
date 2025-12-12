@@ -1,9 +1,17 @@
-function replaceAll() {
-    let str1 = document.getElementById("txtInput").value;
-    console.log(str1);
-   
+console.log('Before binding event');
 
-    let newStr = str1.replaceAll(' ','');
-    document.getElementById("txtResult").innerHTML = newStr;
+// bind
+let txtInput = document.querySelector('#txtInput');
+let btnReplaceAll = document.querySelector('#btnReplaceAll');
+let txtOutput = document.querySelector('#txtOutput');
 
-}
+
+// event
+btnReplaceAll.addEventListener('click',function(){
+    // logic
+    let str = txtInput.value;
+    let result = str.replaceAll(" ","");
+    // txtOutput?
+    txtOutput.innerText = result;
+    console.log(result);
+});
